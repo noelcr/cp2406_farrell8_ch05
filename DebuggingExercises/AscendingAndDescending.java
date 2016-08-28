@@ -1,70 +1,67 @@
-import javax.swing.*;
-
-/**
- * Created by jc321443 on 22/08/16.
- */
-public class AscendingAndDescending {
-    public static void main(String []args){
-        int one, two, three, four;
-        String str, output;
-        str = JOptionPane.showInputDialog(null,"Enter an integer");
-        one = Integer.parseInt(str);
-        str = JOptionPane.showInputDialog(null,"Enter an integer");
-        two = Integer.parseInt(str);
-        str = JOptionPane.showInputDialog(null,"Enter an integer");
-        three = Integer.parseInt(str);
-
-        int[] acsendingArray = new int[2];
-        int[] dArray = {0,0,0};
-
-//        if (two > one && three > one) {
-//            System.out.println(one + "is the smallest");
-//            acsendingArray[0] = one;
-//            dArray[2] = one;
-//            System.out.println(acsendingArray[0]);
-//            System.out.println(dArray[2]);
-//        }
-
-        if(one <= two && one <= three) {
-            System.out.println(one + "is the smallest");
-            acsendingArray[0] = one;
-            dArray[2] = one;
-            System.out.println(acsendingArray[0]);
-            System.out.println(dArray[2]);
-            if(two<=three){
-                acsendingArray[1] = two;
-                System.out.println(acsendingArray[1]);
-                dArray[1] = two;
-                System.out.println(dArray[1]);
+import java.util.Scanner;
+public class AscendingAndDescending
+{
+    public static void main(String[] args)
+    {
+        int num1, num2, num3;
+        int low, med, high;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter an integer... ");
+        num1 = keyboard.nextInt();
+        System.out.print("And another... ");
+        num2 = keyboard.nextInt();
+        System.out.print("And just one more... ");
+        num3 = keyboard.nextInt();
+        if(num1 <= num2 && num1 <= num3)
+        {
+            low = num1;
+            if(num2 <= num3)
+            {
+                med = num2;
+                high = num3;
             }
             else
             {
-                acsendingArray[2] = three;
-                System.out.println(acsendingArray[2]);
-
-                dArray[1] = two;
-                System.out.println(dArray[1]);
+                med = num3;
+                high = num2;
             }
         }
         else
         {
-            if(two <= one && two <= three){
-                acsendingArray[2] = two;
-
+            if(num2 <= num1 && num2 <= num3)
+            {
+                low = num2;
+                if(num1 <= num3)
+                {
+                    med = num1;
+                    high = num3;
+                }
+                else
+                {
+                    med = num3;
+                    high = num1;
+                }
+            }
+            else
+            {
+                low = num3;
+                if(num1 <= num2)
+                {
+                    med = num1;
+                    high = num2;
+                }
+                else
+                {
+                    med = num2;
+                    high = num1;
+                }
             }
         }
-        System.out.println(acsendingArray[0]+ acsendingArray[1] + acsendingArray[2]);
-
-
-
-
-
-
-
-
-
+        System.out.println("Ascending: " + low + " " +
+                med + " " + high);
+        System.out.println("Descending: " + high + " " +
+                med + " " + low);
 
 
     }
-
 }
